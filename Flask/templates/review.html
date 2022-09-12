@@ -1,0 +1,82 @@
+<html>
+    <head>
+        <style text/css>
+            table{
+                height: 100%;
+                width: 100%;
+                background-color: beige
+            };
+        </style>
+
+    </head>
+    <body>
+        <div style="height:80%; width:90%; padding:5%; background-color: rgb(184, 209, 184); "> 
+            <div style="height: 80%; width: 60%; margin:0% 20%; background-color: beige;">
+                <form action = "https://176e-42-122-248-60.jp.ngrok.io/review/fun" method = "post">
+                    <table border="1" align="center">
+                        <tr style="height: 10%;">
+                            <td align="center" colspan="6" style="width: 100%;background-color:rgb(209, 239, 209);">
+                                "REVIEW"
+                            </td>
+                        </tr>
+                        
+                        <tr style="height: 15%;">
+                            <td align="right" rowspan="2" style="width: 10%;background-color:rgb(209, 239, 209);">
+                                word :
+                            </td>
+                            <td align="center" rowspan="2" style="width: 25%;">
+                                {{word}}
+                            </td>
+                            <td align="right" rowspan="2" style="width: 10%;background-color:rgb(209, 239, 209);">
+                                root : 
+                            </td>
+                            <td align="center" rowspan="2" style="width: 25%;">
+                                {{roots}}
+                            </td>
+                            <td align="right" style="width: 10%;background-color:rgb(209, 239, 209);">
+                                before:
+                            </td>
+                            <td align="center" style="width: 10%;background-color:rgb(209, 239, 209);">
+                                {{before}}
+                            </td>
+                        </tr>
+                        <tr style="height: 15%;">
+                            <td align="right" style="background-color:rgb(209, 239, 209);">
+                                counts:
+                            </td>
+                            <td align="center" style="background-color:rgb(209, 239, 209);">
+                                {{counts}}
+                            </td>
+                        </tr>
+                        <tr style="height: 55%;">
+                            <td align="right" style="width: 10%;background-color:rgb(209, 239, 209);">
+                                paraphrase:
+                            </td>
+                            <td colspan="5" align="center">
+                                {{paraphrase}}
+                            </td>
+                        </tr>
+                        <tr style="height: 15%;">
+                            <td align="center" style="background-color:rgb(209, 239, 209);">
+                                <input type="radio" name="choose" value="over" />
+                                Over
+                            </td>
+                            <td colspan="2" align="center" style="background-color:rgb(209, 239, 209);">
+                                <input type="radio" name="choose" value="true" checked/>
+                                True
+                            </td>
+                            <td colspan="2" align="center" style="background-color:rgb(209, 239, 209);">
+                                <input type="radio" name="choose" value="false" />
+                                False
+                            </td>
+                            <td align="center" style="background-color:rgb(209, 239, 209);">
+                                <input type="submit" value="next" />
+                            </td>
+                        </tr>
+                        
+                    </table>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

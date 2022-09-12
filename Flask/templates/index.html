@@ -1,0 +1,81 @@
+<html>
+   <head>
+      <style text/css>
+          table{
+              height: 100%;
+              width: 100%;
+              background-color: beige
+          };
+      </style>
+
+  </head>
+   <body>
+
+      <div style="height:80%; width:90%; padding:5%; background-color: rgb(184, 209, 184); "> 
+         <div style="height: 40%; width: 60%; margin:0% 20%; background-color: beige;">
+         <form action = "https://176e-42-122-248-60.jp.ngrok.io/index/judge" method = "post">
+            <table align="center" >
+               <tr style="height: 10%;">
+                  <td colspan="4" align="center" style="background-color:rgb(209, 239, 209);">
+                     {{msg}}
+                  </td>
+               
+               </tr>
+
+               <tr style="height: 40%;">
+                  <td align="right" rowspan="1" style="width: 25;">
+                     <input type="radio" name="choose" value="addition" />
+                  </td>
+                  <td align="left" rowspan="1" style="width: 25;">
+                     增加单词
+                  </td>
+                  <td align="right" style="width: 5;">
+                     <input type="radio" name="choose" value="reviewDates" />
+                  </td>
+                  <td align="left" style="width: 45;">
+                     按日期复习
+                  </td>
+               </tr>
+
+               <tr style="height: 40%;">
+                  <td align="right" rowspan="1" style="width: 25;">
+                     <input type="radio" name="choose" value="select" checked/>
+                  </td>
+                  <td align="left"  rowspan="1" style="width: 25;">
+                     查询单词
+                  </td>
+                  <td align="right" style="width: 5;">
+                     <input type="radio" name="choose" value="reviewCounts" />
+                  </td>
+                  <td align="left" style="width: 45;">
+                     按次数复习
+                  </td>
+               </tr>
+
+               <!-- <tr style="height: 20%;">
+                  <td align="right" rowspan="2" style="width: 25;">
+                     <input type="radio" name="choose" value="select" checked/>
+                  </td>
+                  <td align="left"  rowspan="2" style="width: 25;">
+                     查询单词
+                  </td>
+                  <td align="right" style="width: 5;">
+                     <input type="radio" name="choose" value="reviewUse" />
+                  </td>
+                  <td align="left" style="width: 45;">
+                     复习使用时查找过的单词
+                  </td>
+               </tr> -->
+
+                  
+                  <tr style="height: 10%;">
+                     <td colspan="4" align="center" style="background-color:rgb(209, 239, 209);">
+                        <input type="submit" value="提交">
+                     </td>
+               </tr>
+            </table>
+         </form>
+         </div>
+      </div>
+   </body>
+</html>
