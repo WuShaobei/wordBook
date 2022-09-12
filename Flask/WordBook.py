@@ -84,12 +84,15 @@ class WorkBook():
             db.rollback()
             return False
         
-        word, date = v.getWord(), getNowTime()
-        self.__use__.add( word )
-        if date in self.__dateDic__:
-            self.__dateDic__[date].add(word)
-        else :
-            self.__dateDic__[date] = { word } 
+        word, date = v.getWord(), v.getDates()
+        
+        
+        if date == getNowTime() :
+            if date in self.__dateDic__:
+                self.__dateDic__[date].add(word)
+            else :
+                self.__dateDic__[date] = { word } 
+        
         
         counts = v.getCounts() 
         if counts>=0:
@@ -169,6 +172,13 @@ class WorkBook():
     def reviewByDate(self) -> (int, Vocabulary):
         date = getNowTime()
 
+        d = date
+        if d in self.__dateDic__:
+            for word in self.__dateDic__[d] :
+                v = self.__dic__[word]
+                self.__dateDic__[d].remove(word)
+                return v
+        
         d = date - 1
         if d in self.__dateDic__:
             for word in self.__dateDic__[d] :

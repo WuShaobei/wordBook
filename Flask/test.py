@@ -12,7 +12,7 @@ from WordBook import *
 # v8 = Vocabulary("8", "k", "l", getNowTime() , 5)
 
 wb = WorkBook()
-print(wb.reviewByDate())
+print(wb.reviewByCounts().toStr())
 
 
 # wb.deleteVocabulary(v1.getWord())
