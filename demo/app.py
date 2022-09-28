@@ -27,7 +27,7 @@ def indexJudge():
     else :
         global todo
         todo = choose
-        return review()
+        return redirect(url_for('review'))
 
 
 @app.route('/addition')
@@ -47,7 +47,7 @@ def additionFun():
             global msg
             __msg__ = msg if msg else "请选择操作"
             msg = ""
-            return render_template("index.html", msg=__msg__)
+            return redirect(url_for('index'))
     except:
         pass
     word = request.form['word']
@@ -60,7 +60,9 @@ def additionFun():
         v = Vocabulary(
             word=request.form['word'],
             paraphrase=request.form['paraphrase'],
-            roots=request.form['roots']
+            roots=request.form['roots'],
+            dates=getNowTime(),
+            counts=5
         )
         wb.additionVocabulary(v)
         return __show__(v, "添加成功")
@@ -165,7 +167,7 @@ def select():
 def selectFun():
     try:
         if choose := request.form['choose']:
-            return index()
+            return redirect(url_for('index'))
     except:
         pass
     global msg, word
@@ -190,7 +192,7 @@ def __review__() :
 
 @app.route('/review')
 def review():
-    global todo, v
+    global msg, todo, v
     print(todo)
     if "reviewDates" == todo :
         v = wb.reviewByDate()
@@ -200,10 +202,9 @@ def review():
         v = wb.reviewByUse()
     
     if not v : 
-        return render_template(
-            "index.html",
-            msg="所有单词已经被复习"
-        )
+        msg="所有单词已经被复习"
+        return redirect(url_for('index'))
+
     
     return __review__()
 
@@ -213,18 +214,19 @@ def reviewFun():
     choose = request.form['choose']
     
     global v
-    if v and 'true' == choose :
+    if v and 'true' == choose and 'reviewCounts' == todo:
         v.setCounts(-1)
         wb.updateVocabulary(v)
-        return review()
+        return redirect(url_for('review'))
     if v and 'false' == choose :
         wb.updateVocabulary(v)
-        return review()
+        return redirect(url_for('review'))
 
     v = None
-    return index()
+    return redirect(url_for('index'))
 
 
 if __name__ == '__main__':
-    # app.run(debug=True,host='localhost',port=1423)
-    app.run(debug=True,host='127.0.0.1',port=1423)
+    app.run(debug=True,host='localhost',port=1432)
+    # app.run(debug=True,host='127.0.0.1',port=1423)
+    # app.run(debug=True,host='0.0.0.0',port=1423)

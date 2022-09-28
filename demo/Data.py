@@ -16,7 +16,7 @@ def getDB():
 
 
 class Vocabulary():
-    def __init__(self, word, paraphrase, roots, dates:int=getNowTime(), counts:int=5 ) :
+    def __init__(self, word, paraphrase, roots, dates:int, counts:int) :
         self.__word__ = word
         self.__paraphrase__ = paraphrase
         self.__roots__ = roots

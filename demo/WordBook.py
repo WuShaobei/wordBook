@@ -86,14 +86,6 @@ class WorkBook():
         
         word, date = v.getWord(), v.getDates()
         
-        
-        if date == getNowTime() :
-            if date in self.__dateDic__:
-                self.__dateDic__[date].add(word)
-            else :
-                self.__dateDic__[date] = { word } 
-        
-        
         counts = v.getCounts() 
         if counts>=0:
             heapq.heappush(self.__countsHeap__, (-counts, word))
